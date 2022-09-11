@@ -35,8 +35,6 @@
  * @version 1.1
  */
 
-use MediaWiki\MediaWikiServices;
-
 class MagicNumberedHeadings {
 
 	/**
@@ -67,7 +65,7 @@ class MagicNumberedHeadings {
 	public static function onParserAfterParse(
 		Parser $parser, string &$text, StripState $stripState
 	) {
-		if( $parser->getOutput()->getPageProperty('MAGICNUMBEREDHEADINGS') !== null ) {
+		if ( $parser->getOutput()->getPageProperty( 'MAGICNUMBEREDHEADINGS' ) !== null ) {
 			$parser->getOutput()->addModuleStyles( [ 'ext.NumberedHeadings.styles' ] );
 			$parser->getOutput()->addModules( [ 'ext.NumberedHeadings' ] );
 		}
