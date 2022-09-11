@@ -33,8 +33,8 @@
 		"MagicWordwgVariableIDs": [
 			"MagicNumberedHeadings::onMagicWordwgVariableIDs"
 		],
-		"ParserBeforeInternalParse": [
-			"MagicNumberedHeadings::onParserBeforeInternalParse"
+		"OutputPageParserOutput": [
+			"MagicNumberedHeadings::onOutputPageParserOutput"
 		]
 	},
 	"manifest_version": 1

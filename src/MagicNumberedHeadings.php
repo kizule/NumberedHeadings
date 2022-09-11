@@ -59,11 +59,13 @@ class MagicNumberedHeadings {
 	}
 
 	/**
+	 * @param OutputPage &$out
 	 * @param Parser $parser
 	 * @param string &$text
 	 * @return bool
 	 */
-	public static function onParserBeforeInternalParse(	Parser $parser, string &$text ) {
+	public static function onOutputPageParserOutput( OutputPage &$out, Parser $parser, string &$text
+) {
 		$mwf = MediaWikiServices::getInstance()->getMagicWordFactory();
 		$out = RequestContext::getMain()->getOutput();
 		if ( $mwf->get( 'MAG_NUMBEREDHEADINGS' )->matchAndRemove( $text ) ) {
