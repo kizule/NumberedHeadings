@@ -70,7 +70,7 @@ class MagicNumberedHeadings {
 		$mwf = MediaWikiServices::getInstance()->getMagicWordFactory();
 		$out = RequestContext::getMain()->getOutput();
 		if ( $mwf->get( 'MAG_NUMBEREDHEADINGS' )->matchAndRemove( $text ) ) {
-			$out->addModules[ 'ext.NumberedHeadings' ];
+			$out->addModules( 'ext.NumberedHeadings' );
 		}
 		return true;
 	}
