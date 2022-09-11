@@ -40,11 +40,11 @@ use MediaWiki\MediaWikiServices;
 class MagicNumberedHeadings {
 
 	/**
-	 * @param array &$magicWords
+	 * @param array &$ids
 	 * @return bool
 	 */
-	public static function onMagicWordMagicWords( array &$magicWords ) {
-		$magicWords[] = 'MAG_NUMBEREDHEADINGS';
+	public static function onGetDoubleUnderscoreIDs( array &$ids ) {
+		$ids[] = 'MAG_NUMBEREDHEADINGS';
 		return true;
 	}
 
@@ -52,7 +52,7 @@ class MagicNumberedHeadings {
 	 * @param array &$wgVariableIDs
 	 * @return bool
 	 */
-	public static function onMagicWordwgVariableIDs( array &$wgVariableIDs ) {
+	public static function onGetMagicVariableIDs( array &$wgVariableIDs ) {
 		// phpcs:ignore MediaWiki.VariableAnalysis.MisleadingGlobalNames.Misleading$wgVariableIDs
 		$wgVariableIDs[] = 'MAG_NUMBEREDHEADINGS';
 		return true;
@@ -61,18 +61,16 @@ class MagicNumberedHeadings {
 	/**
 	 * @param Parser $parser
 	 * @param string &$text
-	 * @parsm StripState $stripState
+	 * @param StripState $stripState
 	 * @return bool
 	 */
-	public static function onParserBeforeInternalParse(
+	public static function onParserAfterParse(
 		Parser $parser, string &$text, StripState $stripState
 	) {
 		$mwf = MediaWikiServices::getInstance()->getMagicWordFactory();
-		$out = RequestContext::getMain()->getOutput();
 		if ( $mwf->get( 'MAG_NUMBEREDHEADINGS' )->matchAndRemove( $text ) ) {
-			$out->addModules( 'ext.NumberedHeadings' );
+			$parser->getOutput()->addModules[ 'ext.NumberedHeadings' ];
 		}
 		return true;
 	}
 }
-

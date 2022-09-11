@@ -27,14 +27,14 @@
 		"remoteExtPath": "NumberedHeadings/resources"
 	},
 	"Hooks": {
-		"MagicWordMagicWords": [
-			"MagicNumberedHeadings::onMagicWordMagicWords"
+		"GetDoubleUnderscoreIDs": [
+			"MagicNumberedHeadings::onGetDoubleUnderscoreIDs"
 		],
-		"MagicWordwgVariableIDs": [
-			"MagicNumberedHeadings::onMagicWordwgVariableIDs"
+		"GetMagicVariableIDs": [
+			"MagicNumberedHeadings::onGetMagicVariableIDs"
 		],
-		"ParserBeforeInternalParse": [
-			"MagicNumberedHeadings::onParserBeforeInternalParse"
+		"ParserAfterParse": [
+			"MagicNumberedHeadings::onParserAfterParse"
 		]
 	},
 	"manifest_version": 1
