@@ -67,8 +67,7 @@ class MagicNumberedHeadings {
 	public static function onParserAfterParse(
 		Parser $parser, string &$text, StripState $stripState
 	) {
-		$mwf = MediaWikiServices::getInstance()->getMagicWordFactory();
-		if ( $mwf->get( 'MAG_NUMBEREDHEADINGS' )->matchAndRemove( $text ) ) {
+		if( $parser->getOutput->getPageProperty('MAGICNUMBEREDHEADINGS') !== null ) {
 			$parser->getOutput()->addModules[ 'ext.NumberedHeadings' ];
 		}
 		return true;
