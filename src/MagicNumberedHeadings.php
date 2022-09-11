@@ -61,10 +61,10 @@ class MagicNumberedHeadings {
 	/**
 	 * @param OutputPage &$out
 	 * @param Parser $parser
-	 * @param string &$text
+	 * @param string $text
 	 * @return bool
 	 */
-	public static function onOutputPageParserOutput( OutputPage &$out, Parser $parser, string &$text
+	public static function onOutputPageParserOutput( OutputPage &$out, Parser $parser, string $text
 ) {
 		$mwf = MediaWikiServices::getInstance()->getMagicWordFactory();
 		$out = RequestContext::getMain()->getOutput();
