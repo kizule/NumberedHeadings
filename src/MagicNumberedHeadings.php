@@ -50,7 +50,6 @@ class MagicNumberedHeadings {
 	 * @param Parser $parser
 	 * @param string &$text
 	 * @param StripState $stripState
-	 * @return bool
 	 */
 	public static function onParserAfterParse(
 		Parser $parser, string &$text, StripState $stripState
@@ -59,6 +58,5 @@ class MagicNumberedHeadings {
 			$parser->getOutput()->addModuleStyles( [ 'ext.NumberedHeadings.styles' ] );
 			$parser->getOutput()->addModules( [ 'ext.NumberedHeadings' ] );
 		}
-		return true;
 	}
 }
