@@ -47,16 +47,6 @@ class MagicNumberedHeadings {
 	}
 
 	/**
-	 * @param array &$wgVariableIDs
-	 * @return bool
-	 */
-	public static function onGetMagicVariableIDs( array &$wgVariableIDs ) {
-		// phpcs:ignore MediaWiki.VariableAnalysis.MisleadingGlobalNames.Misleading$wgVariableIDs
-		$wgVariableIDs[] = 'MAG_NUMBEREDHEADINGS';
-		return true;
-	}
-
-	/**
 	 * @param Parser $parser
 	 * @param string &$text
 	 * @param StripState $stripState
@@ -65,7 +55,7 @@ class MagicNumberedHeadings {
 	public static function onParserAfterParse(
 		Parser $parser, string &$text, StripState $stripState
 	) {
-		if ( $parser->getOutput()->getPageProperty( 'MAGICNUMBEREDHEADINGS' ) !== null ) {
+		if ( $parser->getOutput()->getPageProperty( 'MAG_MAGICNUMBEREDHEADINGS' ) !== null ) {
 			$parser->getOutput()->addModuleStyles( [ 'ext.NumberedHeadings.styles' ] );
 			$parser->getOutput()->addModules( [ 'ext.NumberedHeadings' ] );
 		}

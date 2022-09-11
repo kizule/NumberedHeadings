@@ -33,9 +33,6 @@
 		"GetDoubleUnderscoreIDs": [
 			"MagicNumberedHeadings::onGetDoubleUnderscoreIDs"
 		],
-		"GetMagicVariableIDs": [
-			"MagicNumberedHeadings::onGetMagicVariableIDs"
-		],
 		"ParserAfterParse": [
 			"MagicNumberedHeadings::onParserAfterParse"
 		]
