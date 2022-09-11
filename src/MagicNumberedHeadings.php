@@ -67,8 +67,9 @@ class MagicNumberedHeadings {
 	public static function onParserAfterParse(
 		Parser $parser, string &$text, StripState $stripState
 	) {
-		if( $parser->getOutput->getPageProperty('MAGICNUMBEREDHEADINGS') ) {
-			$parser->getOutput()->addModules[ 'ext.NumberedHeadings' ];
+		if( $parser->getOutput->getPageProperty('MAGICNUMBEREDHEADINGS') !== null ) {
+			$parser->getOutput()->addModuleStyles( [ 'ext.NumberedHeadings.styles' ] );
+			$parser->getOutput()->addModules( [ 'ext.NumberedHeadings' ] );
 		}
 		return true;
 	}

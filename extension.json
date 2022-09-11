@@ -15,10 +15,13 @@
 	},
 	"ResourceModules": {
 		"ext.NumberedHeadings": {
-			"scripts": "js/NumberedHeadings.js",
-			"styles": "css/NumberedHeadings.css",
-			"dependencies": [
-				"jquery.ui"
+			"scripts": [
+				"js/NumberedHeadings.js"
+			]
+		},
+		"ext.NumberedHeadings.styles": {
+			"styles": [
+				"css/NumberedHeadings.css"
 			]
 		}
 	},
@@ -37,5 +40,5 @@
 			"MagicNumberedHeadings::onParserAfterParse"
 		]
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }
