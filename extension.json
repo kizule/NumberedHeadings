@@ -1,0 +1,41 @@
+{
+	"name": "MagicNumberedHeadings",
+	"version": "1.1",
+	"author": [
+		"Zoran Dori"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:MagicNumberedHeadings::",
+	"description": "Adds MagicWord \"<nowiki>__NUMBEREDHEADINGS__</nowiki>\"",
+	"type": "parserhook",
+	"AutoloadClasses": {
+		"MagicNumberedHeadings": "src/MagicNumberedHeadings.php"
+	},
+	"ExtensionMessagesFiles": {
+		"MagicNumberedHeadingsMagic": "MagicNumberedHeadings.i18n.magic.php"
+	},
+	"ResourceModules": {
+		"ext.NumberedHeadings": {
+			"scripts": "js/NumberedHeadings.js",
+			"styles": "css/NumberedHeadings.css",
+			"dependencies": [
+				"jquery.ui"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "NumberedHeadings/resources"
+	},
+	"Hooks": {
+		"MagicWordMagicWords": [
+			"MagicNumberedHeadings::onMagicWordMagicWords"
+		],
+		"MagicWordwgVariableIDs": [
+			"MagicNumberedHeadings::onMagicWordwgVariableIDs"
+		],
+		"ParserBeforeInternalParse": [
+			"MagicNumberedHeadings::onParserBeforeInternalParse"
+		]
+	},
+	"manifest_version": 1
+}

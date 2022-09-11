@@ -1,0 +1,56 @@
+/**
+ * Auto-number headings
+ *
+ * @source https://www.mediawiki.org/wiki/Snippets/Auto-number_headings
+ * @author Krinkle
+ * @version 2021-10-03
+ */
+
+/**
+ * Fallback for pages without a TOC. This could in principle work for all pages,
+ * but we don't to ensure consistency between the TOC and heading numbers
+ */
+.tpl-autonum .mw-parser-output {
+	counter-reset: autonum-h2 autonum-h3 autonum-h4 autonum-h5 autonum-h6;
+}
+
+.tpl-autonum .mw-parser-output h2 {
+	counter-reset: autonum-h3 autonum-h4 autonum-h5 autonum-h6;
+}
+
+.tpl-autonum .mw-parser-output h3 {
+	counter-reset: autonum-h4 autonum-h5 autonum-h6;
+}
+
+.tpl-autonum .mw-parser-output h4 {
+	counter-reset: autonum-h5 autonum-h6;
+}
+
+.tpl-autonum .mw-parser-output h5 {
+	counter-reset: autonum-h6;
+}
+
+.tpl-autonum .mw-parser-output h2 .mw-headline:before {
+	counter-increment: autonum-h2;
+	content: counter(autonum-h2) " ";
+}
+
+.tpl-autonum .mw-parser-output h3 .mw-headline:before {
+	counter-increment: autonum-h3;
+	content: counter(autonum-h2) "." counter(autonum-h3) " ";
+}
+
+.tpl-autonum .mw-parser-output h4 .mw-headline:before {
+	counter-increment: autonum-h4;
+	content: counter(autonum-h2) "." counter(autonum-h3) "." counter(autonum-h4) " ";
+}
+
+.tpl-autonum .mw-parser-output h5 .mw-headline:before {
+	counter-increment: autonum-h5;
+	content: counter(autonum-h2) "." counter(autonum-h3) "." counter(autonum-h4) "." counter(autonum-h5) " ";
+}
+
+.tpl-autonum .mw-parser-output h6 .mw-headline:before {
+	counter-increment: autonum-h6;
+	content: counter(autonum-h2) "." counter(autonum-h3) "." counter(autonum-h4) "." counter(autonum-h5) "." counter(autonum-h6) " ";
+}
